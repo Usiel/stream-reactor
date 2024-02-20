@@ -194,9 +194,9 @@ object Dependencies {
   val logback          = "ch.qos.logback"              % "logback-classic"  % logbackVersion
   lazy val logbackCore = "ch.qos.logback"              % "logback-core"     % logbackVersion
   val scalaLogging     = "com.typesafe.scala-logging" %% "scala-logging"    % scalaLoggingVersion
-  val log4jToSlf4j     = "org.slf4j"                   % "log4j-over-slf4j" % "2.0.6"
-  val jclToSlf4j       = "org.slf4j"                   % "jcl-over-slf4j"   % "2.0.6"
-  val slf4jApi         = "org.slf4j"                   % "slf4j-api"        % "2.0.6"
+  val log4jToSlf4j     = "org.slf4j"                   % "log4j-over-slf4j" % "2.0.12"
+  val jclToSlf4j       = "org.slf4j"                   % "jcl-over-slf4j"   % "2.0.12"
+  val slf4jApi         = "org.slf4j"                   % "slf4j-api"        % "2.0.12"
 
   // testing
   val scalatest = "org.scalatest" %% "scalatest" % scalatestVersion
@@ -457,8 +457,7 @@ trait Dependencies {
   import Versions._
 
   val loggingDeps: Seq[ModuleID] = Seq(
-    "org.apache.logging.log4j" % "log4j-api"      % "2.20.0",
-    "org.apache.logging.log4j" % "log4j-to-slf4j" % "2.20.0",
+    slf4jApi,
     log4jToSlf4j,
     jclToSlf4j,
     logback,
@@ -605,6 +604,7 @@ trait Dependencies {
     nettyAll,
     hadoopCommon,
     hadoopHdfs,
+    hadoopAuth,
     hadoopHdfsClient,
     hbaseClient,
     nimbusJoseJwt,
